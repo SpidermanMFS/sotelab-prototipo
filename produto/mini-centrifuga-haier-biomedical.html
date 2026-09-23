@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mini Centrífuga – Haier Biomedical | Sotelab</title>
 <meta name="description" content="Mini centrífuga compacta para microcentrifugação (tubos de até 2 mL) — simples, silenciosa e segura.">
-<link rel="stylesheet" href="../css/site.css?v=1790172992">
+<link rel="stylesheet" href="../css/site.css?v=1790174259">
 </head>
 <body class="produto">
 <div id="sgate" style="position:fixed;inset:0;z-index:2147483647;background:#0B1437;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
@@ -319,23 +319,25 @@
   },{rootMargin:'0px 0px -6% 0px',threshold:.08});
   els.forEach(function(el){io.observe(el);});
 
-  var alvo=document.querySelector('[data-conta]');
-  if(alvo){
+  var alvos=[].slice.call(document.querySelectorAll('[data-conta]'));
+  if(alvos.length){
     var io2=new IntersectionObserver(function(ents){
       ents.forEach(function(en){
         if(!en.isIntersecting) return;
         io2.unobserve(en.target);
-        var fim=parseInt(en.target.getAttribute('data-conta'),10), ini=null;
+        var el=en.target, fim=parseInt(el.getAttribute('data-conta'),10), ini=null;
+        var pre=el.getAttribute('data-prefixo')||'', suf=el.getAttribute('data-sufixo')||'';
         function passo(ts){
           if(!ini) ini=ts;
           var p=Math.min((ts-ini)/1100,1);
-          en.target.textContent=Math.round(fim*(1-Math.pow(1-p,3)));
+          var v=Math.round(fim*(1-Math.pow(1-p,3)));
+          el.textContent=pre+v.toLocaleString('pt-BR')+suf;
           if(p<1) requestAnimationFrame(passo);
         }
         requestAnimationFrame(passo);
       });
     },{threshold:.5});
-    io2.observe(alvo);
+    alvos.forEach(function(a){io2.observe(a);});
   }
 })();
 </script>

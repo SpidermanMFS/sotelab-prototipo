@@ -662,6 +662,34 @@ table.specs.specs-modelos tbody tr:hover th[scope="row"]{background:#E1ECFB}
 @media(max-width:900px){.clientes{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.clientes{grid-template-columns:1fr}}
 
+/* ===== Seção Clientes — bloco de destaque (mockup) ===== */
+.cli-sec{background:var(--branco)}
+.cli-topo{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-bottom:38px}
+.cli-intro h2{font-size:clamp(26px,3.4vw,40px);line-height:1.08;color:var(--navy);margin:12px 0 14px;letter-spacing:-.01em}
+.cli-intro > p{font-size:16px;line-height:1.6;color:var(--tinta-2);max-width:34em;margin:0}
+.cli-stats{display:flex;flex-wrap:wrap;gap:26px 34px;margin-top:28px}
+.cli-stat{display:flex;align-items:center;gap:13px}
+.cli-ico{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--ciano-claro);color:var(--ciano)}
+.cli-ico svg{width:24px;height:24px}
+.cli-stat > div{display:flex;flex-direction:column;line-height:1.12}
+.cli-stat b{font-size:26px;color:var(--navy);font-weight:800}
+.cli-stat span{font-size:13px;color:var(--tinta-3)}
+.cli-foto{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sombra-2);aspect-ratio:4/3}
+.cli-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.cli-foto-tag{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#fff;background:rgba(23,17,81,.55);padding:6px 12px;border-radius:999px}
+.cli-logos{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:var(--r-lg);overflow:hidden}
+.cli-logo{background:#fff;min-height:104px;display:grid;place-items:center;padding:20px 18px;transition:background .2s}
+.cli-logo:hover{background:var(--cinza)}
+.cli-logo img{max-height:58px;max-width:100%;width:auto;object-fit:contain}
+.cli-logo-txt{font-weight:800;color:var(--navy);font-size:15px;text-align:center;line-height:1.2}
+.cli-cta{text-align:center;margin-top:30px}
+@media(max-width:860px){
+  .cli-topo{grid-template-columns:1fr;gap:26px}
+  .cli-foto{aspect-ratio:16/9}
+  .cli-logos{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:520px){.cli-logos{grid-template-columns:repeat(2,1fr)}.cli-stats{gap:18px 24px}}
+
 /* ---------- efeitos: revelação ao rolar ---------- */
 .rv{opacity:0;transform:translateY(20px);
   transition:opacity .62s cubic-bezier(.22,.7,.3,1),transform .62s cubic-bezier(.22,.7,.3,1)}
