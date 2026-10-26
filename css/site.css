@@ -1130,3 +1130,21 @@ footer.site .base{border-top:1px solid rgba(255,255,255,.12);padding:18px 0 26px
   .guia-card.destaque .guia-txt{padding:22px}
   .guias-grade{grid-template-columns:1fr}
 }
+
+/* ---------- Botão flutuante do WhatsApp ---------- */
+.zap-flut{position:fixed;right:22px;bottom:22px;z-index:90;display:flex;align-items:center;gap:10px;
+  background:#1EA855;color:#fff;text-decoration:none;font-weight:640;font-size:15px;
+  padding:13px 20px 13px 15px;border-radius:999px;box-shadow:0 8px 24px rgba(16,90,46,.35);
+  transition:background .2s,transform .2s,box-shadow .2s;animation:zapEntra .5s .8s both}
+.zap-flut svg{width:26px;height:26px;flex:none}
+.zap-flut:hover{background:#178B46;transform:translateY(-2px);box-shadow:0 12px 28px rgba(16,90,46,.42);color:#fff}
+.zap-flut:focus-visible{outline:3px solid #9BE3B6;outline-offset:3px}
+@keyframes zapEntra{from{opacity:0;transform:translateY(16px) scale(.9)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.zap-flut{animation:none}}
+@media (max-width:700px){
+  .zap-flut{right:16px;bottom:16px;padding:14px;width:58px;height:58px;justify-content:center}
+  .zap-flut span{display:none}
+  .zap-flut svg{width:30px;height:30px}
+  body.produto .zap-flut{bottom:90px}
+}
+@media print{.zap-flut{display:none}}
